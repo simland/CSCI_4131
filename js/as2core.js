@@ -5,14 +5,14 @@ var PolishCalc = {
 	init : function(){
 		this.display(this.process(window.prompt("Enter RPN String","4 2 +").split(" ").reverse()));
 	},
-	process : function(stack){
+	process : function(inputStack){
 		var workingStack = [];
 		var currentValue = 0;
 		var result = 0;
 		var operand = function(){};
 		
-		while (stack.length > 0){
-			currentValue = stack.pop();
+		while (inputStack.length > 0){
+			currentValue = inputStack.pop();
 			if (currentValue.match(/^[\*\+\-\/]$/)) {
 				switch(String(currentValue))
 				{
@@ -49,16 +49,16 @@ var PolishCalc = {
 		}
 	},
 	add : function(a,b){
-		return a.valueOf()+b.valueOf();
+		return parseFloat(a)+parseFloat(b);
 	},
 	subtract : function(a,b){
-		return a.valueOf()-b.valueOf();
+		return parseFloat(a)-parseFloat(b);
 	},
 	multiply : function (a,b){
-		return a.valueOf()*b.valueOf();
+		return parseFloat(a)*parseFloat(b);
 	},
-	dividie : function (a,b){
-		return a.valueOf()/b.valueOf();
+	divide : function (a,b){
+		return parseFloat(a)/parseFloat(b);
 	}
 };
 
