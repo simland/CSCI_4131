@@ -3,7 +3,7 @@
  */
 var PolishCalc = {
 	init : function(){
-		this.display(this.process(window.prompt("Enter RPN String","4 2 +").split(" ").reverse));
+		this.display(this.process(window.prompt("Enter RPN String","4 2 +").split(" ").reverse()));
 	},
 	process : function(stack){
 		var workingStack = [];
@@ -14,7 +14,7 @@ var PolishCalc = {
 		while (stack.length > 0){
 			currentValue = stack.pop();
 			if (currentValue.match(/^[\*\+\-\/]$/)) {
-				switch(string(currentValue))
+				switch(String(currentValue))
 				{
 					case "+":
 						operand = this.add;
@@ -32,7 +32,7 @@ var PolishCalc = {
 				
 				
 				while (workingStack.length > 1){
-					workingStack.push(operand(workingStack.pop,workingStack.pop));
+					workingStack.push(operand(workingStack.pop(),workingStack.pop()));
 				}
 			} else {
 				workingStack.push(currentValue);
@@ -45,20 +45,20 @@ var PolishCalc = {
 		if (window.confirm("The answer was "+output+". Input another string?")){
 			this.init();
 		} else {
-			window.alert("All done")
+			window.alert("All done");
 		}
 	},
 	add : function(a,b){
-		return a+b;
+		return a.valueOf()+b.valueOf();
 	},
 	subtract : function(a,b){
-		return a-b;
+		return a.valueOf()-b.valueOf();
 	},
 	multiply : function (a,b){
-		return a*b;
+		return a.valueOf()*b.valueOf();
 	},
 	dividie : function (a,b){
-		return a/b;
+		return a.valueOf()/b.valueOf();
 	}
 };
 
