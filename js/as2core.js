@@ -46,7 +46,7 @@ var PolishCalc = {
 		return workingStack;
 	},
 	display : function(output){
-		if (window.confirm("The answer was "+output[0]+".\n Remaining values on stack: "+output.slice(1,output.length)+"\n Input another string?")){
+		if (window.confirm("The answer was "+output[output.length-1]+".\n Remaining values on stack: "+output.slice(0,output.length-1)+"\n Input another string?")){
 			this.init();
 		} else {
 			window.alert("All done.");
