@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script language="JavaScript">
+			function reversepolishcalc() {  //this function defines the calculator portion as well as the check for a number
+			var input = prompt("Please enter your equation:");
+			var seperatedinput = input.split(" ");  //this line splits the input by spaces
+			var stack = []
+			for (var index in seperatedinput) { //starts the evaluator
+				Number(seperatedinput[index])
+				if (!isNaN(seperatedinput[index]))  //If item is a number, pushes number to stack
+				{stack.push(seperatedinput[index])}
+				else if (isNaN(seperatedinput[index]))  //If item is not a number, pulls for equation
+					{var operand2 = stack.pop(); //extracts first number
+						var operand1 = stack.pop();  //extracts second number
+						var result = eval(operand1 + seperatedinput[index] + (operand2));  //calculator
+						stack.push(result)};
+				}
+			answer(stack) //sends stack to a results section
+			}
+			function answer(answers) {
+				var redo = confirm("Your answer is "+ answers[0]+". Would you like to continue?")  //displays the resulting calculation and asks if another calculation is required
+				if (redo)
+					{
+						reversepolishcalc()  //starts calculation again
+					}
+					else
+					{
+						alert("Thanks for running JJ's Reverse Polish Calculator")
+					}
+			}
+			
+			alert("Welcome to the online Reverse Polish Calculator")
+			reversepolishcalc()		
+			</script>
+	</head>
+	<body>
+	</body>
+</html>
