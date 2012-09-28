@@ -31,21 +31,25 @@ var PolishCalc = {
 				}
 				
 				
-				while (workingStack.length > 1){
+				try	{
 					workingStack.push(operand(workingStack.pop(),workingStack.pop()));
+				}
+				catch(e)
+				{
+					alert(e.message);
 				}
 			} else {
 				workingStack.push(currentValue);
 			}
 		}
 		
-		return workingStack[0];
+		return workingStack;
 	},
 	display : function(output){
-		if (window.confirm("The answer was "+output+". Input another string?")){
+		if (window.confirm("The answer was "+output[output.length-1]+".\n Remaining values on stack: "+output.slice(0,output.length-1)+"\n Input another string?")){
 			this.init();
 		} else {
-			window.alert("All done");
+			window.alert("All done.");
 		}
 	},
 	add : function(a,b){
