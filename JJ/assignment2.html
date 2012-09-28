@@ -16,7 +16,8 @@
 						var result = eval(operand1 + seperatedinput[index] + operand2);  //calculator
 						stack.push(result)};
 				}
-			answer(stack) //sends stack to a results section
+			var answerstack = stack.reverse()
+			answer(answerstack) //sends stack to a results section
 			}
 			function answer(answers) {
 				var redo = confirm("Your answer is "+ answers[0]+". Would you like to continue?")  //displays the resulting calculation and asks if another calculation is required
