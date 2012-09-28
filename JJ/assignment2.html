@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>JJ's Reverse Polish Calculator</title>
 		<script language="JavaScript">
 			function reversepolishcalc() {  //this function defines the calculator portion as well as the check for a number
 			var input = prompt("Please enter your equation:");
@@ -12,7 +13,7 @@
 				else if (isNaN(seperatedinput[index]))  //If item is not a number, pulls for equation
 					{var operand2 = stack.pop(); //extracts first number
 						var operand1 = stack.pop();  //extracts second number
-						var result = eval(operand1 + seperatedinput[index] + (operand2));  //calculator
+						var result = eval(operand1 + seperatedinput[index] + operand2);  //calculator
 						stack.push(result)};
 				}
 			answer(stack) //sends stack to a results section
@@ -34,5 +35,9 @@
 			</script>
 	</head>
 	<body>
+		<h1>Thanks for stopping by!</h1>
+		Head back to <a href="http://moodle2.umn.edu">Moodle?</a><br />
+		<br />
+		Head back to <a href="http://www-users.cselabs.umn.edu/classes/Fall-2012/csci4131/index.php">CSE 4131 Homepage</a>
 	</body>
 </html>
