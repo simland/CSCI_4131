@@ -2,8 +2,9 @@
  * @author Richard Benson
  */
 var PolishCalc = {
-	init : function(){
-		this.display(this.process(window.prompt("Enter RPN String","4 2 +").split(" ").reverse()));
+	init : function(remainder){
+		var remainder = remainder || [];
+		this.display(this.process(window.prompt("Enter RPN String",remainder.join(" ")).split(" ").reverse()));
 	},
 	process : function(inputStack){
 		var workingStack = [];
@@ -29,8 +30,6 @@ var PolishCalc = {
 						operand = this.subtract;
 					break;
 				}
-				
-				
 				try	{
 					workingStack.push(operand(workingStack.pop(),workingStack.pop()));
 				}
@@ -42,12 +41,12 @@ var PolishCalc = {
 				workingStack.push(currentValue);
 			}
 		}
-		
 		return workingStack;
 	},
 	display : function(output){
+		var output = output || [];
 		if (window.confirm("The answer was "+output[output.length-1]+".\n Remaining values on stack: "+output.slice(0,output.length-1)+"\n Input another string?")){
-			this.init();
+			this.init(output);
 		} else {
 			window.alert("All done.");
 		}
