@@ -32,7 +32,7 @@ function process(inputStack){
 			{
 				alert(e.message);
 			}
-		} else {
+		} else if(currentValue.match(/.+/g)) {
 			workingStack.push(parseFloat(currentValue));
 		}
 	}
